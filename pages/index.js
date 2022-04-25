@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product, FooterBanner, HeroBanner } from '../components';
 import { client } from '../lib/client';
+
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);
@@ -12,6 +13,7 @@ export const getServerSideProps = async () => {
     props: { products, bannerData },
   };
 };
+
 export default function Home({ products, bannerData }) {
   return (
     <>
